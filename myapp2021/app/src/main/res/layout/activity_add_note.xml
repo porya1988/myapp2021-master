@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.shoppinglist.AddNoteActivity">
+  
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/addnote_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/blupallet"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/margin"
+                android:layout_toEndOf="@id/sav_buy_title"
+                app:srcCompat="@drawable/ic_baseline_edit_note_24" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sav_buy_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/bazanin"
+                android:text="@string/save_buy"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_title_size"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="305dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="224dp"
+        app:cardCornerRadius="@dimen/margin">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_buy"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/chi_bekhari" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_meghdar_kharid"
+        android:layout_width="305dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="317dp"
+        app:cardCornerRadius="@dimen/margin">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_amount"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/che_meghdar" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_below="@id/card_meghdar_kharid"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btn_save_shopping"
+        android:layout_width="104dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40sp"
+        android:background="@drawable/btn_shape"
+        android:text="@string/save_it"
+        app:srcCompat="@drawable/ic_baseline_save_24" />
+</RelativeLayout>

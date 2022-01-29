@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration.RegisterActivity">
+
+ <androidx.appcompat.widget.AppCompatImageButton
+     android:id="@+id/btn_close"
+     android:layout_marginTop="@dimen/margin"
+     android:layout_marginStart="@dimen/margin"
+     android:background="@color/white"
+     app:srcCompat="@drawable/ic_baseline_close_24"
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_marginTop="80sp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/ic_baseline_login_24"
+        android:layout_width="89sp"
+        android:layout_height="89sp"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/register_title"
+        android:textSize="@dimen/txt_title_size"
+        android:layout_marginTop="@dimen/topMargin_register"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/bazanin"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/question_register"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/register_title"
+        android:id="@+id/register_description"
+        android:text="@string/enter_with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:paddingEnd="@dimen/margin"
+        android:id="@+id/username_edittext"
+        android:background="@drawable/my_edittext"
+        android:layout_marginTop="55sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/register_title"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:hint="@string/username"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:paddingEnd="@dimen/margin"
+        android:layout_below="@id/username_edittext"
+        android:id="@+id/email_edittext"
+        android:background="@drawable/my_edittext"
+        android:layout_marginTop="@dimen/text_size"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:hint="@string/email_phone"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textStyle="bold"
+        android:id="@+id/btn_enter"
+        android:textSize="@dimen/enter_textsize"
+        android:text="@string/enter"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@color/orangepallet"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_below="@id/email_edittext"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_enter_google"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@id/btn_enter"
+        android:textSize="@dimen/enter_textsize"
+        android:text="@string/enter_with_google"
+        android:layout_marginTop="@dimen/margin_top"
+        android:background="@color/Red"
+        android:layout_width="@dimen/edittext_width"
+        android:layout_height="@dimen/edittext_height"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:textSize="@dimen/text_size"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/edittext_height"
+        android:id="@+id/txt_forget"
+        android:text="@string/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_enter_google"
+        android:layout_centerHorizontal="true"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_membership"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:fontFamily="@font/bazanin"
+        android:text="@string/membership"
+        android:textSize="@dimen/txt_title_size"
+        android:layout_marginBottom="@dimen/margin"
+        android:background="@color/black"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".foodDetail.FoodDetailActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_mainfood"
+            android:layout_width="match_parent"
+            android:layout_height="250sp"
+            android:scaleType="fitXY" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_foodname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/img_mainfood"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/bazanin"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_marginEnd="25sp"
+            android:textColor="@color/orangepallet"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/img_share"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_width="30sp"
+            android:layout_height="30sp"
+            android:layout_below="@id/img_mainfood"
+            app:srcCompat="@drawable/ic_baseline_share_24"
+            android:layout_marginStart="@dimen/margin"/>
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+
+            android:id="@+id/img_favorite"
+            android:layout_width="30dp"
+            android:layout_height="24dp"
+            android:layout_below="@id/img_mainfood"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
+            app:srcCompat="@id/img_favorite"
+            android:layout_toEndOf="@id/img_share" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_titleingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_foodname"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/bazanin"
+            android:text="@string/txt_titleingredients"
+            android:layout_marginTop="20sp"
+            android:layout_marginEnd="25sp"
+            android:textColor="@color/orangepallet"
+            android:textSize="25sp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_titleingredients"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/bazanin"
+            android:layout_marginTop="8sp"
+            android:layout_marginEnd="25sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="@dimen/margin"
+            android:textSize="@dimen/text_size"
+            />
+
+        <View style="@style/Divider"
+            android:id="@+id/devider"
+            android:layout_margin="0sp"
+            android:layout_below="@id/txt_ingredients"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/txt_titleprepare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/devider"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/bazanin"
+            android:text="@string/prepare"
+            android:layout_marginEnd="25sp"
+            android:textColor="@color/orangepallet"
+            android:textSize="25sp"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_prepare"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/txt_titleprepare"
+            android:layout_alignParentEnd="true"
+            app:fontFamily="@font/bazanin"
+            android:layout_marginEnd="25sp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size"
+            />
+
+        <ImageButton
+            android:id="@+id/btn_kharid"
+            app:srcCompat="@drawable/ic_baseline_add_shopping_cart_24"
+            android:layout_marginTop="@dimen/margin"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200sp"
+            android:layout_height="50sp"
+            android:background="@drawable/btn_shape"
+            android:layout_below="@+id/txt_prepare"
+            android:contentDescription="@string/todo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_listkharid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btn_kharid"
+            android:layout_marginTop="@dimen/margin"
+            android:backgroundTint="@color/orangepallet"
+            android:gravity="end"
+            android:layout_centerHorizontal="true"
+            android:text="@string/make_shoppinglist"
+            tools:targetApi="lollipop" />
+
+
+
+    </RelativeLayout>
+   
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.myapp2021">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".config.AppConfiguration"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyApp2021">
+        <activity android:name=".Registration.LoginActivity"></activity>
+        <activity android:name=".foodDetail.MembershipActivity" />
+        <activity android:name=".Registration.RegisterActivity" />
+        <activity android:name=".main.OptionMenu.AboutActivity" />
+        <activity android:name=".main.OptionMenu.ContactActivity" />
+        <activity android:name=".main.shoppinglist.AddNoteActivity" />
+        <activity android:name=".foodDetail.FoodDetailActivity" />
+        <activity android:name=".Activities.fastfood.FastFoodActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".FirebaseServices.FirebaseService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

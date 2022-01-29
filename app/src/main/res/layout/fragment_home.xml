@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".main.home.HomeFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layoutDirection="rtl"
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="35sp"
+        android:background="@color/blupallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:menu="@menu/option_menu">
+
+        <androidx.appcompat.widget.SearchView
+            android:layout_marginStart="25sp"
+            android:background="@drawable/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="25sp"/>
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar">
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/margin"
+            android:id="@+id/left_cardview"
+            android:layout_width="185sp"
+            android:layout_height="200sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35sp"
+            android:layout_marginBottom="35sp"
+            app:layout_constraintStart_toStartOf="parent">
+            <RelativeLayout
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/left_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"
+                    app:srcCompat="@drawable/ic_baseline_fastfood_24"
+                    />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_below="@id/left_image"
+                    android:text="@string/recepi"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            app:cardCornerRadius="@dimen/margin"
+            android:layout_toEndOf="@id/left_cardview"
+            android:id="@+id/right_cardview"
+            android:layout_width="185sp"
+            android:layout_height="200sp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35sp"
+            android:layout_marginBottom="35sp"
+            >
+            <RelativeLayout
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/right_image"
+                    app:srcCompat="@drawable/ic_baseline_dining_24"
+                    android:layout_width="120sp"
+                    android:layout_height="120sp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:text="@string/recepi"
+                    android:layout_centerVertical="true"
+                    android:layout_below="@id/right_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/recycler_categories"
+        android:layout_width="391dp"
+        android:layout_height="334dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <androidx.core.widget.ContentLoadingProgressBar
+
+        android:outlineAmbientShadowColor="@color/blupallet"
+        android:theme="@style/progressBarBlue"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/recycler_categories"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recycler_categories"
+        tools:targetApi="p" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

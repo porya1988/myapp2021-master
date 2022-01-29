@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/alert_shape"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/alert_title"
+            android:layout_width="267sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="122dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="126dp"
+            android:gravity="center"
+            android:text="@string/note_here"
+            android:textColor="@color/blupallet"
+            android:textSize="20sp" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_buy"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/alert_title"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="76dp"
+            android:hint="@string/chi_bekhari" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/txt_amount"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_buy"
+            android:layout_marginStart="77dp"
+            android:layout_marginTop="25sp"
+            android:layout_marginEnd="77sp"
+            android:hint="@string/how_much" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_save_shopping"
+            android:layout_width="@dimen/btn_save_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_amount"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="219dp"
+            android:layout_marginTop="21sp"
+            android:layout_marginEnd="78sp"
+            android:background="@drawable/btn_shape"
+            android:text="@string/save_it"
+            android:textColor="@color/white"
+            app:srcCompat="@android:drawable/ic_menu_save" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt_amount"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="239dp"
+            android:background="@drawable/btn_shape"
+            android:text="@string/txt_cancel"
+            android:textColor="@color/white"
+             />
+
+
+
+</RelativeLayout>

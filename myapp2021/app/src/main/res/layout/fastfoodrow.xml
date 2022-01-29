@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+  >
+
+    <data>
+
+        <variable
+            name="Mfoods"
+            type="com.example.myapp2021.model.MFoods" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/food_card"
+        android:layout_width="match_parent"
+        android:layout_height="140sp"
+        android:layout_margin="@dimen/margin"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.027">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="top"
+            android:gravity="right">
+
+            <androidx.appcompat.widget.AppCompatTextView
+
+                android:id="@+id/title_food"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/danstevis"
+                android:textStyle="bold"
+                android:text="@{Mfoods.name}"
+                android:layout_marginRight="10sp"
+                android:textSize="18sp" />
+
+
+
+          <de.hdodenhof.circleimageview.CircleImageView
+              android:id="@+id/img_fastfood"
+              android:layout_width="90sp"
+              android:layout_height="90sp"
+              android:layout_gravity="center"
+              android:layout_marginRight="@dimen/margin"
+              app:foodImage="@{Mfoods.imageAddress}"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>
