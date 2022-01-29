@@ -101,7 +101,7 @@ public class RInteractor {
                     listener.onFailure(failed);
                 }
             }
-        })
+        });
     }
 
     public void LogUser(HashMap<String, Object> user, IMessageListner listener) {
