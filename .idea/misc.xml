@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/pb/Desktop/myapp2021-master/app/src/main/res/layout-v21/fragment_contact.xml" value="0.67" />
+        <entry key="..\:/Users/pb/Desktop/myapp2021-master/app/src/main/res/layout/activity_contact.xml" value="0.14673913043478262" />
         <entry key="..\:/Users/pb/Desktop/myapp2021-master/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/pb/Desktop/myapp2021-master/app/src/main/res/layout/fragment_contact.xml" value="0.22" />
       </map>
     </option>
   </component>
