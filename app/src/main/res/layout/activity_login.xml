@@ -19,7 +19,7 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_email"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_marginTop="52dp"
         android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,7 +30,7 @@
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edit_password"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:hint="@string/password"
         app:layout_constraintEnd_toEndOf="parent"
@@ -45,7 +45,7 @@
         android:layout_marginTop="36dp"
         android:background="@color/orangepallet"
         android:text="@string/Login"
-        android:textColor="@color/white"
+        android:textColor="#3949AB"
         android:textSize="@dimen/enter_textsize"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
