@@ -2,7 +2,6 @@ package com.example.myapp2021.Registration.RPresentor;
 
 import com.example.myapp2021.Registration.RInteractor.RInteractor;
 import com.example.myapp2021.Registration.RView.LogView;
-import com.example.myapp2021.Registration.RegisterListner.RegisterListner;
 import com.example.myapp2021.model.IMessageListner;
 
 import java.util.HashMap;

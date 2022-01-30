@@ -10,11 +10,6 @@ public class AppConfiguration extends Application {
     public  AppConfiguration instance=null;
     private static Context context;
 
-    AppConfiguration getInstance(){
-      if(instance==null)
-          instance=new AppConfiguration();
-          return instance;
-    }
 
     public static Context getContext(){return context;}
 
