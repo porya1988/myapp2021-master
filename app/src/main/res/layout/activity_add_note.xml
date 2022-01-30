@@ -43,7 +43,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="305dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -52,6 +52,8 @@
         app:cardCornerRadius="@dimen/margin">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:height="48dp"
+            android:width="48dp"
             android:id="@+id/txt_buy"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -61,7 +63,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card_meghdar_kharid"
         android:layout_width="305dp"
-        android:layout_height="42dp"
+        android:layout_height="48dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -70,6 +72,8 @@
         app:cardCornerRadius="@dimen/margin">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:height="48dp"
+            android:width="48dp"
             android:id="@+id/txt_amount"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -77,13 +81,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_below="@id/card_meghdar_kharid"
-        android:layout_centerHorizontal="true"
         android:id="@+id/btn_save_shopping"
         android:layout_width="104dp"
         android:layout_height="51dp"
+        android:layout_below="@id/card_meghdar_kharid"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="40sp"
         android:background="@drawable/btn_shape"
+        android:contentDescription="@string/Login"
         android:text="@string/save_it"
         app:srcCompat="@drawable/ic_baseline_save_24" />
 </RelativeLayout>
