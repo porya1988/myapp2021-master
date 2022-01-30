@@ -1,6 +1,6 @@
 package com.example.myapp2021.main.favorite;
 
-import android.content.Context;
+
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.myapp2021.Activities.fastfood.FastFoodAdapter;
-import com.example.myapp2021.R;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.database.AppDatabase;
 import com.example.myapp2021.databinding.FragmentFavoriteBinding;
