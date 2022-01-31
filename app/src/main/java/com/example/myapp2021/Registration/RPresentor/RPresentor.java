@@ -1,5 +1,7 @@
 package com.example.myapp2021.Registration.RPresentor;
 
+import android.util.Log;
+
 import com.example.myapp2021.Registration.RInteractor.RInteractor;
 import com.example.myapp2021.Registration.RView.RView;
 import com.example.myapp2021.Registration.RegisterListner.RegisterListner;
@@ -28,6 +30,7 @@ public class RPresentor implements RegisterListner {
         if (rView != null) {
             rView.HideProgressbar();
             rView.onSuccess(responseMessage);
+            Log.e("","");
         }
 
     }

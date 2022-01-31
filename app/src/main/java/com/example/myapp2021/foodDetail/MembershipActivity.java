@@ -73,6 +73,7 @@ public class MembershipActivity extends AppCompatActivity implements RView {
     @Override
     public void onSuccess(Object responseMessage) {
         Toast.makeText(AppConfiguration.getContext(), "" + responseMessage, Toast.LENGTH_LONG).show();
+        Log.e("","");
     }
 
     @Override
