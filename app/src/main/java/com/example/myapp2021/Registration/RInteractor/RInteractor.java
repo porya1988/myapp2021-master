@@ -68,6 +68,8 @@ public class RInteractor {
             if (!task.isSuccessful()) {
                 FirebaseAuthException e = (FirebaseAuthException) task.getException();
                 Log.e("LoginActivity", "Failed Registration", e);
+                String sign_failed = AppConfiguration.getContext().getResources().getString(R.string.sign_failed);
+                listener.onFailure(sign_failed);
                 return;
             }
 
@@ -113,9 +115,10 @@ public class RInteractor {
         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
 
             if (!task.isSuccessful()) {
+                String sign_failed = AppConfiguration.getContext().getResources().getString(R.string.sign_failed);
+                listener.onFailure(sign_failed);
                 Log.e("", "");
             }
-
 
             if (task.isSuccessful()) {
                 String signed = AppConfiguration.getContext().getResources().getString(R.string.login_successful);
