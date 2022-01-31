@@ -8,14 +8,13 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.myapp2021.Registration.RPresentor.LogPresenter;
-import com.example.myapp2021.Registration.RPresentor.RPresentor;
 import com.example.myapp2021.Registration.RView.LogView;
-import com.example.myapp2021.Registration.RView.RView;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.ActivityLoginBinding;
 import com.example.myapp2021.foodDetail.MembershipActivity;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity implements LogView {
 
@@ -29,33 +28,22 @@ public class LoginActivity extends AppCompatActivity implements LogView {
         presenter = new LogPresenter(this);
         setContentView(binding.getRoot());
 
-        binding.btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                HashMap<String, Object> user = new HashMap<>();
-                String email = binding.editEmail.getText().toString();
-                String password = binding.editPassword.getText().toString();
-                user.put("email", email);
-                user.put("password", password);
-                presenter.LogUser(user);
+        binding.btnLogin.setOnClickListener(v -> {
+            HashMap<String, Object> user = new HashMap<>();
+            String email = Objects.requireNonNull(binding.editEmail.getText()).toString();
+            String password = Objects.requireNonNull(binding.editPassword.getText()).toString();
+            user.put("email", email);
+            user.put("password", password);
+            presenter.LogUser(user);
 
-            }
         });
 
-        binding.ifNotRegistered.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AppConfiguration.getContext(), MembershipActivity.class);
-                startActivity(intent);
-            }
+        binding.ifNotRegistered.setOnClickListener(v -> {
+            Intent intent = new Intent(AppConfiguration.getContext(), MembershipActivity.class);
+            startActivity(intent);
         });
 
-        binding.imgBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        binding.imgBack.setOnClickListener(v -> finish());
 
     }
 
