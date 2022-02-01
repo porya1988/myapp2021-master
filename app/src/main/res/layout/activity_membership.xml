@@ -52,9 +52,10 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:gravity="center"
         android:id="@+id/name"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
 
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
@@ -68,9 +69,10 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:gravity="center"
         android:id="@+id/family"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/my_edittext"
@@ -83,14 +85,15 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:inputType="textPassword"
+        android:gravity="center"
         android:id="@+id/password"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/my_edittext"
         android:hint="@string/password"
+        android:inputType="textPassword"
         android:paddingEnd="@dimen/margin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.45"
@@ -99,9 +102,10 @@
 
 
     <androidx.appcompat.widget.AppCompatEditText
+        android:gravity="center"
         android:id="@+id/email_edittext"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:background="@drawable/my_edittext"
@@ -116,11 +120,11 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/create_account"
         android:layout_width="@dimen/edittext_width"
-        android:layout_height="@dimen/edittext_height"
+        android:layout_height="48dp"
         android:layout_marginTop="36dp"
         android:background="@color/orangepallet"
         android:text="@string/create_new_account"
-        android:textColor="@color/white"
+        android:textColor="#3949AB"
         android:textSize="@dimen/enter_textsize"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
