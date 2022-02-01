@@ -17,6 +17,7 @@ public class LogPresenter implements IMessageListner {
     }
 
     public void LogUser(HashMap<String, Object> user) {
+        logView.ShowProgressbar();
         interactor.LogUser(user, this);
     }
 
