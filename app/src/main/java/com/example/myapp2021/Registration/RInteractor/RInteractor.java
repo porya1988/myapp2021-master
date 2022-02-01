@@ -123,9 +123,6 @@ public class RInteractor {
             if (task.isSuccessful()) {
                 String signed = AppConfiguration.getContext().getResources().getString(R.string.login_successful);
                 listener.onSuccess(signed);
-            } else {
-                String sign_failed = AppConfiguration.getContext().getResources().getString(R.string.sign_failed);
-                listener.onFailure(sign_failed);
             }
         });
 
