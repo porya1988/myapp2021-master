@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/alert_shape"
-    android:gravity="center"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/alert_title"
@@ -34,7 +30,9 @@
             android:layout_marginStart="77dp"
             android:layout_marginTop="18dp"
             android:layout_marginEnd="76dp"
-            android:hint="@string/chi_bekhari" />
+            android:hint="@string/chi_bekhari"
+            android:minHeight="48dp"
+            android:textColorHint="#311B92" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/txt_amount"
@@ -44,7 +42,9 @@
             android:layout_marginStart="77dp"
             android:layout_marginTop="25sp"
             android:layout_marginEnd="77sp"
-            android:hint="@string/how_much" />
+            android:hint="@string/how_much"
+            android:minHeight="48dp"
+            android:textColorHint="#311B92" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_save_shopping"
@@ -56,9 +56,9 @@
             android:layout_marginStart="219dp"
             android:layout_marginTop="21sp"
             android:layout_marginEnd="78sp"
-            android:background="@drawable/btn_shape"
+            android:background="@color/browser_actions_bg_grey"
             android:text="@string/save_it"
-            android:textColor="@color/white"
+            android:textColor="#3D5AFE"
             app:srcCompat="@android:drawable/ic_menu_save" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -70,11 +70,9 @@
             android:layout_marginStart="92dp"
             android:layout_marginTop="21dp"
             android:layout_marginEnd="239dp"
-            android:background="@drawable/btn_shape"
+            android:background="@color/orangepallet"
             android:text="@string/txt_cancel"
-            android:textColor="@color/white"
-             />
-
+            android:textColor="#4A148C" />
 
 
 </RelativeLayout>
