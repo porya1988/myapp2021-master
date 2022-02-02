@@ -19,7 +19,7 @@ import java.util.Objects;
 
 public class RInteractor {
 
-    FirebaseAuth firebaseAuth;
+    FirebaseAuth firebaseAuth=null;
 
     public RInteractor() {
         firebaseAuth = FirebaseAuth.getInstance();
