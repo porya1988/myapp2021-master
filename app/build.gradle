@@ -134,7 +134,7 @@ dependencies {
 
     //firebase messaging and firestore
     implementation 'com.google.firebase:firebase-messaging:23.0.0'
-    implementation 'com.google.firebase:firebase-firestore:24.0.0'
+    implementation 'com.google.firebase:firebase-firestore:24.0.1'
 
 
 }
