@@ -36,7 +36,7 @@ public class WebserviceCaller {
             @Override
             public void onFailure(@NotNull Call<List<Food>> call, @NotNull Throwable t) {
                 listner.onFailure("error");
-                Log.e("","");
+                
 
             }
         });
