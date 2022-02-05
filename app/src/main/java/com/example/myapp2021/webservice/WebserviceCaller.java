@@ -60,6 +60,20 @@ public class WebserviceCaller {
     }
 
     public void getUser(HashMap<String,Object> user,IMessageListner listner){
+        String name=user.get("name").toString();
+        String family=user.get("family").toString();
+        String password=user.get("password").toString();
+        String email=user.get("email").toString();
+          fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
+              @Override
+              public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                  listner.onSuccess(response.body());
+              }
 
+              @Override
+              public void onFailure(Call<ResponseBody> call, Throwable t) {
+                 listner.onFailure("error occured");
+              }
+          });
     }
 }
