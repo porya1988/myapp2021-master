@@ -2,7 +2,7 @@ package com.example.myapp2021.webservice;
 
 import android.util.Log;
 
-import com.example.myapp2021.main.home.FoodAdapter;
+import androidx.annotation.NonNull;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.model.MFoods;
@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,8 +21,6 @@ import retrofit2.Response;
 public class WebserviceCaller {
 
     FService fservice;
-
-
     public WebserviceCaller() {
         fservice = ApiClient.getClient().create(FService.class);
     }
@@ -29,7 +28,7 @@ public class WebserviceCaller {
     public void getCategory(IMessageListner listner) {
         fservice.getCategory().enqueue(new Callback<List<Food>>() {
             @Override
-            public void onResponse(Call<List<Food>> call, Response<List<Food>> response) {
+            public void onResponse(@NonNull Call<List<Food>> call, @NonNull Response<List<Food>> response) {
                 listner.onSuccess(response.body());
                 Log.e("","");
              }
@@ -37,7 +36,6 @@ public class WebserviceCaller {
             @Override
             public void onFailure(@NotNull Call<List<Food>> call, @NotNull Throwable t) {
                 listner.onFailure("error");
-                
 
             }
         });
@@ -60,19 +58,20 @@ public class WebserviceCaller {
     }
 
     public void getUser(HashMap<String,Object> user,IMessageListner listner){
-        String name=user.get("name").toString();
-        String family=user.get("family").toString();
-        String password=user.get("password").toString();
-        String email=user.get("email").toString();
+        String name= Objects.requireNonNull(user.get("name")).toString();
+        String family= Objects.requireNonNull(user.get("family")).toString();
+        String password= Objects.requireNonNull(user.get("password")).toString();
+        String email= Objects.requireNonNull(user.get("email")).toString();
+
           fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
               @Override
-              public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+              public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                   listner.onSuccess(response.body());
                   Log.e("","");
               }
 
               @Override
-              public void onFailure(Call<ResponseBody> call, Throwable t) {
+              public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
                  listner.onFailure("error occured");
                   Log.e("","");
               }
