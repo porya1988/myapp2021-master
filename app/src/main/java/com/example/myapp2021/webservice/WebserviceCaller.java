@@ -68,11 +68,13 @@ public class WebserviceCaller {
               @Override
               public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                   listner.onSuccess(response.body());
+                  Log.e("","");
               }
 
               @Override
               public void onFailure(Call<ResponseBody> call, Throwable t) {
                  listner.onFailure("error occured");
+                  Log.e("","");
               }
           });
     }
