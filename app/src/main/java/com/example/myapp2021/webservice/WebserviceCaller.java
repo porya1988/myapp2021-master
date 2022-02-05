@@ -21,6 +21,7 @@ import retrofit2.Response;
 public class WebserviceCaller {
 
     FService fservice;
+
     public WebserviceCaller() {
         fservice = ApiClient.getClient().create(FService.class);
     }
@@ -62,19 +63,19 @@ public class WebserviceCaller {
         String family= Objects.requireNonNull(user.get("family")).toString();
         String password= Objects.requireNonNull(user.get("password")).toString();
         String email= Objects.requireNonNull(user.get("email")).toString();
+        Log.e("","");
+        fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                listner.onSuccess(response);
+                Log.e("","");
+            }
 
-          fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
-              @Override
-              public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                  listner.onSuccess(response.body());
-                  Log.e("","");
-              }
-
-              @Override
-              public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
-                 listner.onFailure("error occured");
-                  Log.e("","");
-              }
-          });
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+             listner.onFailure("error");
+             Log.e("","");
+            }
+        });
     }
 }
