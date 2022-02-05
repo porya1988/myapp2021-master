@@ -10,6 +10,7 @@ import com.example.myapp2021.Registration.RegisterListner.RegisterListner;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.model.IMessageListner;
 
+import com.example.myapp2021.webservice.WebserviceCaller;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -19,10 +20,12 @@ import java.util.Objects;
 
 public class RInteractor {
 
-    FirebaseAuth firebaseAuth;
+    //FirebaseAuth firebaseAuth;
+    WebserviceCaller webserviceCaller;
 
     public RInteractor() {
-        firebaseAuth = FirebaseAuth.getInstance();
+        /*firebaseAuth = FirebaseAuth.getInstance();*/
+        webserviceCaller=new WebserviceCaller();
     }
 
     public void getUser(HashMap<String, Object> user, RegisterListner listener) {
@@ -63,7 +66,21 @@ public class RInteractor {
             return;
         }
 
-        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+        webserviceCaller.getUser(user, new IMessageListner() {
+            @Override
+            public void onSuccess(Object responseMessage) {
+                listener.onSuccess((String) responseMessage);
+            }
+
+            @Override
+            public void onFailure(String errorResponseMessage) {
+               listener.onFailure(errorResponseMessage);
+            }
+        });
+
+
+
+        /*firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
 
             if (!task.isSuccessful()) {
                 FirebaseAuthException e = (FirebaseAuthException) task.getException();
@@ -95,10 +112,10 @@ public class RInteractor {
                 String failed = AppConfiguration.getContext().getResources().getString(R.string.login_failed);
                 listener.onFailure(failed);
             }
-        });
+        });*/
     }
 
-    public void LogUser(HashMap<String, Object> user, IMessageListner listener) {
+    /*public void LogUser(HashMap<String, Object> user, IMessageListner listener) {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
 
@@ -126,5 +143,5 @@ public class RInteractor {
             }
         });
 
-    }
+    }*/
 }
