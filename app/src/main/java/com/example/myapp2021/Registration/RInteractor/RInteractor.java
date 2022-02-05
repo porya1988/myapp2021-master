@@ -1,20 +1,11 @@
 package com.example.myapp2021.Registration.RInteractor;
 
 import android.util.Log;
-import android.widget.Toast;
-
-
-
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.RegisterListner.RegisterListner;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.model.IMessageListner;
-
 import com.example.myapp2021.webservice.WebserviceCaller;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthException;
-import com.google.firebase.firestore.FirebaseFirestore;
-
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -34,7 +25,7 @@ public class RInteractor {
         String family = Objects.requireNonNull(user.get("family")).toString();
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
-
+        Log.e("","");
         if (name.isEmpty()) {
             String error = AppConfiguration.getContext().getResources().getString(R.string.enter_your_name);
             listener.onNameError(error);
