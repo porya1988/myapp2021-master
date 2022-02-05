@@ -9,6 +9,7 @@ import com.example.myapp2021.model.MFoods;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.HashMap;
 import java.util.List;
 
 import okhttp3.ResponseBody;
@@ -56,5 +57,9 @@ public class WebserviceCaller {
                 listner.onFailure("Error");
             }
         });
+    }
+
+    public void getUser(HashMap<String,Object> user,IMessageListner listner){
+
     }
 }
