@@ -70,6 +70,7 @@ public class RInteractor {
             @Override
             public void onSuccess(Object responseMessage) {
                 listener.onSuccess((String) responseMessage);
+                Log.e("","");
             }
 
             @Override
