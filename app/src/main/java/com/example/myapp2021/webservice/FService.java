@@ -31,6 +31,10 @@ public interface FService {
     @GET("getAllfoods.php")
     Call<List<MFoods>> getAllfoods(@Query("category") String category);
 
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<ResponseBody> getUser(@Field("name") String name,@Field("family") String family,@Field("password") String password,@Field("email") String email);
+
 
 /*
     @GET("getCakes.php")
