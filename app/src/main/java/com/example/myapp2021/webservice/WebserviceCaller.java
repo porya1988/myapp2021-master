@@ -66,13 +66,13 @@ public class WebserviceCaller {
         Log.e("","");
         fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
                 listner.onSuccess(response);
                 Log.e("","");
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
              listner.onFailure("error");
              Log.e("","");
             }
