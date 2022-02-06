@@ -33,7 +33,7 @@ public interface FService {
 
     @FormUrlEncoded
     @POST("register.php")
-    Call<ResponseBody> getUser(@Field("name") String name,@Field("family") String family,@Field("password") String password,@Field("email") String email);
+    Call<String> getUser(@Field("name") String name,@Field("family") String family,@Field("password") String password,@Field("email") String email);
 
 
 /*
