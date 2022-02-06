@@ -64,18 +64,18 @@ public class WebserviceCaller {
         String password= Objects.requireNonNull(user.get("password")).toString();
         String email= Objects.requireNonNull(user.get("email")).toString();
         Log.e("","");
-        fservice.getUser(name,family,password,email).enqueue(new Callback<ResponseBody>() {
+        fservice.getUser(name,family,password,email).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(@NonNull Call<ResponseBody> call, @NonNull Response<ResponseBody> response) {
-                listner.onSuccess(response);
+            public void onResponse(Call<String> call, Response<String> response) {
+                listner.onSuccess(response.body());
                 Log.e("","");
             }
 
             @Override
-            public void onFailure(@NonNull Call<ResponseBody> call, @NonNull Throwable t) {
-             listner.onFailure("error");
-             Log.e("","");
+            public void onFailure(Call<String> call, Throwable t) {
+                listner.onFailure("error");
+                Log.e("","");
             }
         });
-    }
+}
 }
