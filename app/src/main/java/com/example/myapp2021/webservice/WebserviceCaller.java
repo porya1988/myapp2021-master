@@ -24,7 +24,7 @@ public class WebserviceCaller {
         fservice = ApiClient.getClient().create(FService.class);
     }
 
-    public void getCategory(IMessageListner listener) {
+    public void getCategory(IMessageListner<List<Food>> listener) {
         fservice.getCategory().enqueue(new Callback<List<Food>>() {
             @Override
             public void onResponse(@NonNull Call<List<Food>> call, @NonNull Response<List<Food>> response) {
@@ -40,7 +40,7 @@ public class WebserviceCaller {
         });
     }
 
-    public void getAllfoods(String category, IMessageListner listener) {
+    public void getAllfoods(String category, IMessageListner<List<MFoods>> listener) {
         fservice.getAllfoods(category).enqueue(new Callback<List<MFoods>>() {
             @Override
             public void onResponse(@NotNull Call<List<MFoods>> call, @NotNull Response<List<MFoods>> response) {
