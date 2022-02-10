@@ -56,7 +56,7 @@ public class WebserviceCaller {
         });
     }
 
-    public void getUser(HashMap<String,Object> user,IMessageListner listener){
+    public void getUser(HashMap<String,Object> user,IMessageListner<String> listener){
         String name= Objects.requireNonNull(user.get("name")).toString();
         String family= Objects.requireNonNull(user.get("family")).toString();
         String password= Objects.requireNonNull(user.get("password")).toString();
