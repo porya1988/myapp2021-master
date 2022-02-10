@@ -1,29 +1,19 @@
 
 package com.example.myapp2021.main.home;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 
-import com.example.myapp2021.R;
-import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.FragmentHomeBinding;
 import com.example.myapp2021.model.Food;
 
@@ -87,11 +77,6 @@ public class HomeFragment extends Fragment implements IHomeView {
 
     @Override
     public void onFailure(String errorResponseMessage) {
-
-    }
-
-    @Override
-    public void onError(String error) {
 
     }
 
