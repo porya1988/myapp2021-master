@@ -60,15 +60,15 @@ public class RInteractor {
         webserviceCaller.getUser(user, new IMessageListner() {
             @Override
             public void onSuccess(Object responseMessage) {
-                listener.onSuccess((String) responseMessage);
-                Log.e("","");
+                listener.onSuccess(responseMessage.toString());
             }
 
             @Override
             public void onFailure(String errorResponseMessage) {
-               listener.onFailure(errorResponseMessage);
+             listener.onFailure(errorResponseMessage);
             }
         });
+
 
 
 
