@@ -9,5 +9,4 @@ public interface IHomeView<T> {
     public void hideProgressbar();
     public void onSuccess(T responseMessage);
     public void onFailure(String errorResponseMessage);
-    public void onError(String error);
 }
