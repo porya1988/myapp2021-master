@@ -1,15 +1,7 @@
 package com.example.myapp2021.webservice;
-
-import android.util.Log;
-
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.MFoods;
-import com.rd.animation.data.Value;
-
-import java.lang.annotation.Target;
 import java.util.List;
-
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -34,17 +26,4 @@ public interface FService {
     @FormUrlEncoded
     @POST("register.php")
     Call<String> getUser(@Field("name") String name,@Field("family") String family,@Field("password") String password,@Field("email") String email);
-
-
-/*
-    @GET("getCakes.php")
-    Call<ResponseBody> getCakes();
-
-    @GET("getFormalFood.php")
-    Call<ResponseBody> getFormalfood();
-
-    @GET("getHomefood.php")
-    Call<ResponseBody> getHomefood();
-*/
-
 }
