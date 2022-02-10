@@ -1,16 +1,6 @@
 package com.example.myapp2021.main.home;
-
-import android.text.style.AlignmentSpan;
 import android.util.Log;
-
-import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
-
-import java.util.List;
-
-import okhttp3.ResponseBody;
-import retrofit2.Response;
-
 public class HomePresenter implements IMessageListner {
     IHomeView iHomeView;
     HomeInteractor interactor;
