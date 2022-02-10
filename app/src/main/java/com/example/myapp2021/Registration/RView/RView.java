@@ -1,17 +1,17 @@
 package com.example.myapp2021.Registration.RView;
 
-public interface RView<T> {
-    void onNameError(T errorResponseMessage);
+public interface RView {
+    void onNameError(String errorResponseMessage);
 
-    void onFamilyError(T errorResponseMessage);
+    void onFamilyError(String errorResponseMessage);
 
     void ShowProgressbar();
 
     void HideProgressbar();
 
-    void onSuccess(T responseMessage);
+    void onSuccess(String responseMessage);
 
-    void onError(T errorResponseMessage);
+    void onError(String errorResponseMessage);
 
 
 }
