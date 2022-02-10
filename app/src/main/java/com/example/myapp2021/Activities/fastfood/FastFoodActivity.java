@@ -1,29 +1,18 @@
 package com.example.myapp2021.Activities.fastfood;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
-import com.example.myapp2021.R;
-import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.ActivityFastFoodBinding;
-import com.example.myapp2021.main.home.FoodAdapter;
 import com.example.myapp2021.main.home.HomePresenter;
 import com.example.myapp2021.main.home.IHomeView;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.MFoods;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -84,11 +73,6 @@ public class FastFoodActivity extends AppCompatActivity implements IHomeView {
 
     @Override
     public void onFailure(String errorResponseMessage) {
-
-    }
-
-    @Override
-    public void onError(String error) {
 
     }
 
