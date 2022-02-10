@@ -1,15 +1,7 @@
 package com.example.myapp2021.main.home;
-
 import android.util.Log;
-
-import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.webservice.WebserviceCaller;
-
-import java.util.List;
-import java.util.Optional;
-
-import okhttp3.ResponseBody;
 
 public class HomeInteractor {
 

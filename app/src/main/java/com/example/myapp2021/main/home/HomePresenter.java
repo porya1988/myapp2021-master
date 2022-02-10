@@ -17,8 +17,6 @@ public class HomePresenter implements IMessageListner {
     public void getCategory() {
 
         if (iHomeView != null) {
-
-
             iHomeView.showProgressbar();
             interactor.getCategory(this);
         } else {
