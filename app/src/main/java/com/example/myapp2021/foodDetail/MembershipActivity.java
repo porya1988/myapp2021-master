@@ -51,12 +51,12 @@ public class MembershipActivity extends AppCompatActivity implements RView {
 
 
     @Override
-    public void onNameError(Object errorResponseMessage) {
+    public void onNameError(String errorResponseMessage) {
         Toast.makeText(AppConfiguration.getContext(), "" + errorResponseMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
-    public void onFamilyError(Object errorResponseMessage) {
+    public void onFamilyError(String errorResponseMessage) {
         Toast.makeText(AppConfiguration.getContext(), "" + errorResponseMessage, Toast.LENGTH_LONG).show();
     }
 
@@ -71,13 +71,13 @@ public class MembershipActivity extends AppCompatActivity implements RView {
     }
 
     @Override
-    public void onSuccess(Object responseMessage) {
+    public void onSuccess(String responseMessage) {
         Toast.makeText(AppConfiguration.getContext(), "" + responseMessage, Toast.LENGTH_LONG).show();
         Log.e("","");
     }
 
     @Override
-    public void onError(Object errorResponseMessage) {
+    public void onError(String errorResponseMessage) {
         Toast.makeText(AppConfiguration.getContext(), "" + errorResponseMessage, Toast.LENGTH_LONG).show();
     }
 }
