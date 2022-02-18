@@ -56,11 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
        /* GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail().build();*/
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        googleSignInClient = GoogleSignIn.getClient(this, gso);
+
 
         binding.btnEnterGoogle.setOnClickListener(v -> {
             Intent signInIntent = googleSignInClient.getSignInIntent();
