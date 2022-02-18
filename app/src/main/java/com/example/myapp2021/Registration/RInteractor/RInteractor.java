@@ -69,4 +69,23 @@ public class RInteractor {
             }
         });
     }
+
+    public void LogUser(HashMap<String,Object> user,IMessageListner listner){
+      /*  String email = Objects.requireNonNull(user.get("email")).toString();
+        String password = Objects.requireNonNull(user.get("password")).toString();*/
+
+        webserviceCaller.LogUser(user, new IMessageListner() {
+            @Override
+            public void onSuccess(Object responseMessage) {
+                listner.onSuccess(responseMessage);
+            }
+
+            @Override
+            public void onFailure(String errorResponseMessage) {
+                listner.onFailure(errorResponseMessage);
+            }
+        });
+
+
+    }
 }
