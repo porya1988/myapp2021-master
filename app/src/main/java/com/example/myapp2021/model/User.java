@@ -12,6 +12,11 @@ public class User {
     @Expose
     private String family;
 
+    public User(String name, String family) {
+        this.name = name;
+        this.family = family;
+    }
+
     public String getName() {
         return name;
     }
