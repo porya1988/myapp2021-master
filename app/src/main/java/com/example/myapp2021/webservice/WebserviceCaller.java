@@ -1,20 +1,17 @@
 package com.example.myapp2021.webservice;
-
 import android.util.Log;
-
 import androidx.annotation.NonNull;
-
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.model.MFoods;
 import com.example.myapp2021.model.User;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,15 +81,15 @@ public class WebserviceCaller {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
 
-        fservice.LogUser(email,password).enqueue(new Callback<ResponseBody>() {
+        fservice.LogUser(email,password).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                listener.onSuccess(response.body());
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.e("", "");
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-              listener.onFailure("ورود موفقیت آمیز نبود!!!");
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.e("", "");
             }
         });
     }
