@@ -80,16 +80,17 @@ public class WebserviceCaller {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
 
-        fservice.LogUser(email,password).enqueue(new Callback<ResponseBody>() {
+        fservice.LogUser(email,password).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                listener.onSuccess(response.body().toString());
+            public void onResponse(Call<String> call, Response<String> response) {
+                listener.onSuccess(response.body());
                 Log.e("", "");
+
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.e("", "");
+            public void onFailure(Call<String> call, Throwable t) {
+               listener.onFailure("رمز عبور یا ایمیل معتبر نیست");
             }
         });
     }
