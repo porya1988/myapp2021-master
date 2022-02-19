@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -49,7 +50,9 @@ public class LoginActivity extends AppCompatActivity implements LogView {
 
     @Override
     public void onSuccess(Object responseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), "" + responseMessage, Toast.LENGTH_LONG).show();
+        String message=responseMessage.toString();
+        Toast.makeText(AppConfiguration.getContext(), "" +message, Toast.LENGTH_LONG).show();
+        Log.e("","");
     }
 
     @Override

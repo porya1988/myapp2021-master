@@ -24,8 +24,9 @@ public class LogPresenter implements IMessageListner {
     @Override
     public void onSuccess(Object responseMessage) {
         if (logView != null) {
-            logView.HideProgressbar();
             logView.onSuccess(responseMessage);
+            logView.HideProgressbar();
+
         }
     }
 
