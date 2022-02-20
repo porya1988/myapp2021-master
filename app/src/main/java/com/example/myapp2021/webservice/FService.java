@@ -34,5 +34,5 @@ public interface FService {
 
     @FormUrlEncoded
     @POST("login.php")
-    Call<String> LogUser(@Field("email") String email, @Field("password") String password);
+    Call<List<User>> LogUser(@Field("email") String email, @Field("password") String password);
 }
