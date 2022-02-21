@@ -1,6 +1,10 @@
 package com.example.myapp2021.webservice;
 import android.util.Log;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
+
+import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.model.MFoods;
@@ -87,6 +91,7 @@ public class WebserviceCaller {
                 String name=response.body().get(0).getName();
                 String family=response.body().get(0).getFamily();
                 user=new User(name,family);
+                Toast.makeText(AppConfiguration.getContext(),"سلام"+" "+name, Toast.LENGTH_LONG).show();
                 listener.onSuccess(user);
                 Log.e("", "");
             }
