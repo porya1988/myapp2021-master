@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity implements LogView {
     @Override
     public void onSuccess(Object responseMessage) {
         Log.e("","");
-        Toast.makeText(AppConfiguration.getContext(), "", Toast.LENGTH_LONG).show();
+        //Toast.makeText(AppConfiguration.getContext(), "", Toast.LENGTH_LONG).show();
     }
 
     @Override
