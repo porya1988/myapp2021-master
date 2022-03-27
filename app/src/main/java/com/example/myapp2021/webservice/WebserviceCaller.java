@@ -16,6 +16,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
+
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -84,21 +85,16 @@ public class WebserviceCaller {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
 
-        fservice.LogUser(email,password).enqueue(new Callback<List<User>>() {
+        fservice.LogUser(email,password).enqueue(new Callback<String>() {
             @Override
-            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                User user;
-                String name=response.body().get(0).getName();
-                String family=response.body().get(0).getFamily();
-                user=new User(name,family);
-                Toast.makeText(AppConfiguration.getContext(),"سلام"+" "+name, Toast.LENGTH_LONG).show();
-                listener.onSuccess(user);
+            public void onResponse(Call<String> call, Response<String> response) {
+                listener.onSuccess(response.body());
                 Log.e("", "");
             }
 
             @Override
-            public void onFailure(Call<List<User>> call, Throwable t) {
-                 listener.onFailure("رمز عبور یا ایمیل معتبر نیست");
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.e("", "");
             }
         });
     }

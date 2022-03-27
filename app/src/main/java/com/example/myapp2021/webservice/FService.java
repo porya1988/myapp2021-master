@@ -1,13 +1,10 @@
 package com.example.myapp2021.webservice;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.MFoods;
-import com.example.myapp2021.model.User;
 
 import java.util.List;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
-import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -34,5 +31,5 @@ public interface FService {
 
     @FormUrlEncoded
     @POST("login.php")
-    Call<List<User>> LogUser(@Field("email") String email, @Field("password") String password);
+    Call<String> LogUser(@Field("email") String email, @Field("password") String password);
 }
