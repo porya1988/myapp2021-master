@@ -18,4 +18,11 @@ public class SharedPref {
         editor.putString("family",family);
         editor.commit();
     }
+
+    public String getName(){
+        return sharedPreferences.getString("name","کاربر");
+    }
+   public String getFamily(){
+     return sharedPreferences.getString("family","");
+   }
 }
