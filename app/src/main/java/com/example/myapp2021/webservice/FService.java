@@ -1,6 +1,7 @@
 package com.example.myapp2021.webservice;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.MFoods;
+import com.example.myapp2021.model.User;
 
 import java.util.List;
 
@@ -31,5 +32,5 @@ public interface FService {
 
     @FormUrlEncoded
     @POST("login.php")
-    Call<String> LogUser(@Field("email") String email, @Field("password") String password);
+    Call<List<User>> LogUser(@Field("email") String email, @Field("password") String password);
 }

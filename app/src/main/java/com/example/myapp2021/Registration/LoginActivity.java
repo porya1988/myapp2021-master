@@ -1,29 +1,26 @@
 package com.example.myapp2021.Registration;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.myapp2021.Registration.RPresentor.LogPresenter;
 import com.example.myapp2021.Registration.RView.LogView;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.databinding.ActivityLoginBinding;
 import com.example.myapp2021.foodDetail.MembershipActivity;
-import com.example.myapp2021.model.User;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity implements LogView {
 
     ActivityLoginBinding binding;
     LogPresenter presenter;
-    List<User> userList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +50,8 @@ public class LoginActivity extends AppCompatActivity implements LogView {
 
     @Override
     public void onSuccess(Object responseMessage) {
+        Toast.makeText(AppConfiguration.getContext(), "ورود موفقیت آمیز بود", Toast.LENGTH_LONG).show();
         Log.e("","");
-        //Toast.makeText(AppConfiguration.getContext(), "", Toast.LENGTH_LONG).show();
     }
 
     @Override

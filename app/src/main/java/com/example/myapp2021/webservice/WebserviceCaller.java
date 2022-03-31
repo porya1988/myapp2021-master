@@ -71,7 +71,7 @@ public class WebserviceCaller {
             @Override
             public void onResponse(@NonNull Call<String> call, @NonNull Response<String> response) {
                 listener.onSuccess(response.body());
-                Log.e("", "");
+
             }
 
             @Override
@@ -85,16 +85,15 @@ public class WebserviceCaller {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
 
-        fservice.LogUser(email,password).enqueue(new Callback<String>() {
+        fservice.LogUser(email,password).enqueue(new Callback<List<User>>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                listener.onSuccess(response.body());
-                Log.e("", "");
+            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                Log.e("","");
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                Log.e("", "");
+            public void onFailure(Call<List<User>> call, Throwable t) {
+                Log.e("","");
             }
         });
     }

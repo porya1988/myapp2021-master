@@ -78,6 +78,7 @@ public class RInteractor {
             @Override
             public void onSuccess(Object responseMessage) {
                 listner.onSuccess(responseMessage);
+                Log.e("","");
             }
 
             @Override
