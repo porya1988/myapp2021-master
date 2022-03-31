@@ -5,6 +5,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 
 import com.example.myapp2021.config.AppConfiguration;
+import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.model.MFoods;
@@ -25,6 +26,8 @@ import retrofit2.Response;
 public class WebserviceCaller {
 
     FService fservice;
+
+    User user;
 
     public WebserviceCaller() {
         fservice = ApiClient.getClient().create(FService.class);
@@ -84,15 +87,19 @@ public class WebserviceCaller {
     public void LogUser(HashMap<String, Object> user, IMessageListner listener) {
         String password = Objects.requireNonNull(user.get("password")).toString();
         String email = Objects.requireNonNull(user.get("email")).toString();
-
         fservice.LogUser(email,password).enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+                List<User> user=response.body();
+                listener.onSuccess(user);
+                //String family=response.body().get(1).toString();
+                //sharedPref.save(name,family);
                 Log.e("","");
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
+                listener.onFailure("ورود موفقیت آمیز نبود");
                 Log.e("","");
             }
         });
