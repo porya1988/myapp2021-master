@@ -12,9 +12,7 @@
         android:orientation="vertical"
         tools:context=".foodDetail.FoodDetail">
 
-
         <androidx.appcompat.widget.AppCompatImageView
-
             android:id="@+id/img_mainfood"
             android:layout_width="match_parent"
             android:layout_height="260sp"
@@ -115,13 +113,42 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_if_member"
-            android:layout_marginEnd="25sp"
-            android:textStyle="bold"
-            android:textColor="@color/orangepallet"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@id/txt_prepare"
-            android:text="@string/txt_login"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_prepare"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="25sp"
+            android:text="@string/txt_login"
+            android:textColor="#EF6C00"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_if_member"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/argin_right"
+            android:layout_toRightOf="@id/comment_edit"
+            app:srcCompat="@drawable/ic_baseline_send_24" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+
+            android:paddingHorizontal="@dimen/argin_right"
+            android:id="@+id/comment_edit"
+            android:layout_width="@dimen/editText_width"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_if_member"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/editText_margin"
+            android:hint="نظرتو اینجا بنویس"
+            android:minHeight="48dp"
+            android:paddingStart="50sp"
+            android:paddingRight="10sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/blupallet"
+            android:textSize="15sp"
+            android:textStyle="normal" />
+
     </RelativeLayout>
 </ScrollView>

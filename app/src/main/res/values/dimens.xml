@@ -19,4 +19,6 @@
     <dimen name="edittext_height">40sp</dimen>
     <dimen name="enter_textsize">20sp</dimen>
     <dimen name="comment_titile_size">15sp</dimen>
+    <dimen name="editText_width">300sp</dimen>
+    <dimen name="editText_margin">10sp</dimen>
 </resources>
