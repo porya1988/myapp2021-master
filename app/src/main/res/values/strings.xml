@@ -102,5 +102,6 @@
     <string name="sign_failed">ورود موفقیت آمیز نبود!!</string>
     <string name="email">ایمیل</string>
     <string name="password_starless">رمز عبور</string>
+    <string name="txt_login">نظرتو بنویس، قبلش عضو شو</string>
 
 </resources>
