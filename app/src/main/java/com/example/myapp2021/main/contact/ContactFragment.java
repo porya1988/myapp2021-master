@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.myapp2021.Registration.LoginActivity;
@@ -21,18 +22,22 @@ public class ContactFragment extends Fragment {
     SharedPref sharedPref;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         // Inflate the layout for this fragment
         binding = FragmentContactBinding.inflate(getLayoutInflater());
         sharedPref=new SharedPref(AppConfiguration.getContext());
+        assert binding.txtIfMember != null;
         binding.txtIfMember.setOnClickListener(v -> {
             Intent intent = new Intent(AppConfiguration.getContext(), LoginActivity.class);
             startActivity(intent);
         });
         String name=sharedPref.getName();
         String family=sharedPref.getFamily();
+        if (sharedPref!=null){
+            binding.txtIfMember.setVisibility(View.GONE);
+        }
         //Toast.makeText(AppConfiguration.getContext(),name+"نظرتو اینجا بنویس",Toast.LENGTH_LONG).show();
         return binding.getRoot();
 
