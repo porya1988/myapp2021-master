@@ -20,7 +20,7 @@ public class SharedPref {
     }
 
     public String getName(){
-        return sharedPreferences.getString("name","کاربر");
+        return sharedPreferences.getString("name","");
     }
    public String getFamily(){
      return sharedPreferences.getString("family","");

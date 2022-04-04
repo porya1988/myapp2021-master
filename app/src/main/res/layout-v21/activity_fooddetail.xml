@@ -134,16 +134,16 @@
 
         <androidx.appcompat.widget.AppCompatEditText
 
-            android:paddingHorizontal="@dimen/argin_right"
             android:id="@+id/comment_edit"
             android:layout_width="@dimen/editText_width"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_if_member"
             android:layout_centerInParent="true"
             android:layout_marginRight="@dimen/editText_margin"
-            android:hint="نظرتو اینجا بنویس"
+            android:hint="@string/comment_opinion"
             android:minHeight="48dp"
-            android:paddingStart="50sp"
+            android:paddingHorizontal="@dimen/argin_right"
+            android:paddingStart="10sp"
             android:paddingRight="10sp"
             android:textColor="@color/black"
             android:textColorHint="@color/blupallet"

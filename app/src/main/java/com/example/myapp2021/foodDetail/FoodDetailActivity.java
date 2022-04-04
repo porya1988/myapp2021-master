@@ -1,9 +1,12 @@
 package com.example.myapp2021.foodDetail;
-
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
@@ -89,5 +92,17 @@ public class FoodDetailActivity extends AppCompatActivity {
         });
     }
 
-
+    @Override
+    protected void onStart() {
+        String name=sharedPref.getName();
+        Log.e("","");
+        if (name.isEmpty()){
+            Toast.makeText(AppConfiguration.getContext(),"برای نظر دادن قبلش باید عضو بشی"+sharedPref.getName(),Toast.LENGTH_LONG).show();
+        }
+        else {
+            assert binding.txtIfMember != null;
+            binding.txtIfMember.setVisibility(View.GONE);
+        }
+        super.onStart();
+    }
 }
