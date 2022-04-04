@@ -11,13 +11,15 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.LoginActivity;
+import com.example.myapp2021.comments.CommentView;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.database.AppDatabase;
 import com.example.myapp2021.databinding.ActivityFooddetailBinding;
+import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.MFoods;
 
-public class FoodDetailActivity extends AppCompatActivity {
+public class FoodDetailActivity extends AppCompatActivity implements CommentView {
 
     ActivityFooddetailBinding binding;
     Bundle bundle;
@@ -67,8 +69,6 @@ public class FoodDetailActivity extends AppCompatActivity {
         likeFood();
     }
 
-
-
     private void likeFood() {
         boolean fav = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
         if (fav) {
@@ -104,5 +104,31 @@ public class FoodDetailActivity extends AppCompatActivity {
             binding.txtIfMember.setVisibility(View.GONE);
         }
         super.onStart();
+    }
+
+
+    @Override
+    public void onSuccess(Comment responseMessage) {
+        Toast.makeText(AppConfiguration.getContext(), R.string.comment_added,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onEmptyComment(String responseMessage) {
+        Toast.makeText(AppConfiguration.getContext(), responseMessage,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onError(String errorResponseMessage) {
+        Toast.makeText(AppConfiguration.getContext(), errorResponseMessage,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void ShowProgressbar() {
+          binding.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideProgressbar() {
+         binding.progressBar.setVisibility(View.GONE);
     }
 }

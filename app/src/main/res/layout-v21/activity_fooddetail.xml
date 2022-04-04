@@ -123,6 +123,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:layout_alignParentEnd="true"
             android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -149,6 +150,13 @@
             android:textColorHint="@color/blupallet"
             android:textSize="15sp"
             android:textStyle="normal" />
-
+<ProgressBar
+    android:id="@+id/progressBar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/comment_edit"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="@dimen/argin_right"
+    />
     </RelativeLayout>
 </ScrollView>
