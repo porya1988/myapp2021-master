@@ -97,7 +97,7 @@ public class FoodDetailActivity extends AppCompatActivity {
         String name=sharedPref.getName();
         Log.e("","");
         if (name.isEmpty()){
-            Toast.makeText(AppConfiguration.getContext(),"برای نظر دادن قبلش باید عضو بشی"+sharedPref.getName(),Toast.LENGTH_LONG).show();
+            Toast.makeText(AppConfiguration.getContext(),getString(R.string.logg_for_register_opinion)+sharedPref.getName(),Toast.LENGTH_LONG).show();
         }
         else {
             assert binding.txtIfMember != null;

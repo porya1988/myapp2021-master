@@ -105,5 +105,6 @@
     <string name="txt_login">نظرتو بنویس، قبلش عضو شو</string>
     <string name="register_comment">ثبت نظر</string>
     <string name="comment_opinion">نظرتو اینجا بنویس</string>
+    <string name="logg_for_register_opinion">برای نظر دادن قبلش باید عضو بشی</string>
 
 </resources>
