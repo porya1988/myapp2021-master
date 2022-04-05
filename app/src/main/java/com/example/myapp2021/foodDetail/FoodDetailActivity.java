@@ -1,4 +1,5 @@
 package com.example.myapp2021.foodDetail;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.LoginActivity;
+import com.example.myapp2021.comments.CommentPresenter;
 import com.example.myapp2021.comments.CommentView;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
@@ -26,6 +28,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     MFoods foods;
     AppDatabase appDatabase;
     SharedPref sharedPref;
+    CommentPresenter commentPresenter;
+    String name;
 
 
     @Override
@@ -33,30 +37,40 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         super.onCreate(savedInstanceState);
         binding = ActivityFooddetailBinding.inflate(getLayoutInflater());
         appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
-        sharedPref=new SharedPref(AppConfiguration.getContext());
+        sharedPref = new SharedPref(AppConfiguration.getContext());
+        commentPresenter = new CommentPresenter(this);
+        name = sharedPref.getName();
         setContentView(binding.getRoot());
+        ////////////////////////////////////////////////////////////////////
+        assert binding.send != null;
+        binding.send.setOnClickListener(v -> {
+            if (name.isEmpty()){
+                Toast.makeText(AppConfiguration.getContext(), getString(R.string.logg_for_register_opinion) + sharedPref.getName(), Toast.LENGTH_LONG).show();
+            } else {
 
+            }
+        });
+
+
+        ////////////////////////////////////////////////////////////////////
         bundle = getIntent().getExtras();
         foods = bundle.getParcelable("food");
-
         binding.txtFoodname.setText(foods.getName());
         binding.txtIngredients.setText(foods.getIngredients());
         binding.txtPrepare.setText(foods.getPrepare());
 
+        ////////////////////////////////////////////////////////////////////
         assert binding.txtIfMember != null;
         binding.txtIfMember.setOnClickListener(v -> {
-            Intent intent=new Intent(AppConfiguration.getContext(), LoginActivity.class);
+            Intent intent = new Intent(AppConfiguration.getContext(), LoginActivity.class);
             startActivity(intent);
         });
-
-
-
-
+        ////////////////////////////////////////////////////////////////////
         Glide.with(binding.imgMainfood.getContext())
                 .load(foods.getImageAddress())
                 .apply(new RequestOptions())
                 .into(binding.imgMainfood);
-
+        ////////////////////////////////////////////////////////////////////
         binding.imgShare.setOnClickListener(v -> {
             Intent myIntent = new Intent(Intent.ACTION_SEND);
             myIntent.setType("text/plain");
@@ -67,8 +81,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             startActivity(Intent.createChooser(myIntent, "Share Using"));
         });
         likeFood();
+        ////////////////////////////////////////////////////////////////////
     }
-
     private void likeFood() {
         boolean fav = appDatabase.iDao().isExist(Integer.parseInt(foods.getId()));
         if (fav) {
@@ -91,44 +105,46 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             }
         });
     }
+    ////////////////////////////////////////////////////////////////////
 
     @Override
     protected void onStart() {
-        String name=sharedPref.getName();
-        Log.e("","");
-        if (name.isEmpty()){
-            Toast.makeText(AppConfiguration.getContext(),getString(R.string.logg_for_register_opinion)+sharedPref.getName(),Toast.LENGTH_LONG).show();
-        }
-        else {
+        //String name = sharedPref.getName();
+        Log.e("", "");
+        if (name.isEmpty()) {
+            Toast.makeText(AppConfiguration.getContext(), getString(R.string.logg_for_register_opinion) + sharedPref.getName(), Toast.LENGTH_LONG).show();
+        } else {
             assert binding.txtIfMember != null;
             binding.txtIfMember.setVisibility(View.GONE);
         }
         super.onStart();
     }
 
-
+    ////////////////////////////////////////////////////////////////////
     @Override
     public void onSuccess(Comment responseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), R.string.comment_added,Toast.LENGTH_LONG).show();
+        Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onEmptyComment(String responseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), responseMessage,Toast.LENGTH_LONG).show();
+        Toast.makeText(AppConfiguration.getContext(), responseMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onError(String errorResponseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), errorResponseMessage,Toast.LENGTH_LONG).show();
+        Toast.makeText(AppConfiguration.getContext(), errorResponseMessage, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void ShowProgressbar() {
-          binding.progressBar.setVisibility(View.VISIBLE);
+        assert binding.progressBar != null;
+        binding.progressBar.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideProgressbar() {
-         binding.progressBar.setVisibility(View.GONE);
+        assert binding.progressBar != null;
+        binding.progressBar.setVisibility(View.GONE);
     }
 }

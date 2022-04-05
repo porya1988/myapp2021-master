@@ -30,15 +30,15 @@
             android:textStyle="bold" />
 
 
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_share"
-            android:layout_marginTop="@dimen/margin"
             android:layout_width="30sp"
             android:layout_height="30sp"
             android:layout_below="@id/img_mainfood"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="@dimen/margin"
             app:srcCompat="@drawable/ic_baseline_share_24"
-            android:layout_marginStart="@dimen/margin"/>
+            tools:ignore="ImageContrastCheck,ImageContrastCheck" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -59,13 +59,12 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_foodname"
             android:layout_alignParentEnd="true"
-            app:fontFamily="@font/bazanin"
-            android:text="@string/txt_titleingredients"
             android:layout_marginTop="20sp"
             android:layout_marginEnd="25sp"
-            android:textColor="@color/orangepallet"
+            android:text="@string/txt_titleingredients"
+            android:textColor="#EF6C00"
             android:textSize="25sp"
-            />
+            app:fontFamily="@font/bazanin" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_ingredients"
@@ -88,18 +87,17 @@
             />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_centerHorizontal="true"
             android:id="@+id/txt_titleprepare"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/devider"
             android:layout_alignParentEnd="true"
-            app:fontFamily="@font/bazanin"
-            android:text="@string/prepare"
+            android:layout_centerHorizontal="true"
             android:layout_marginEnd="25sp"
-            android:textColor="@color/orangepallet"
+            android:text="@string/prepare"
+            android:textColor="#EF6C00"
             android:textSize="25sp"
-            />
+            app:fontFamily="@font/bazanin" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/txt_prepare"
