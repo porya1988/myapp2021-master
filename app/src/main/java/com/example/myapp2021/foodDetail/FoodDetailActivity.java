@@ -1,18 +1,16 @@
 package com.example.myapp2021.foodDetail;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.LoginActivity;
 import com.example.myapp2021.comments.CommentPresenter;
+import com.example.myapp2021.comments.CommentTime;
 import com.example.myapp2021.comments.CommentView;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
@@ -30,6 +28,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     SharedPref sharedPref;
     CommentPresenter commentPresenter;
     String name;
+    CommentTime commentTime;
 
 
     @Override
@@ -40,6 +39,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         sharedPref = new SharedPref(AppConfiguration.getContext());
         commentPresenter = new CommentPresenter(this);
         name = sharedPref.getName();
+        commentTime=new CommentTime();
         setContentView(binding.getRoot());
         ////////////////////////////////////////////////////////////////////
         assert binding.send != null;
@@ -47,7 +47,9 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             if (name.isEmpty()){
                 Toast.makeText(AppConfiguration.getContext(), getString(R.string.logg_for_register_opinion) + sharedPref.getName(), Toast.LENGTH_LONG).show();
             } else {
-
+                String date=commentTime.getCurrentTime();
+                Toast.makeText(AppConfiguration.getContext(),date, Toast.LENGTH_LONG).show();
+                Log.e("","");
             }
         });
 
@@ -112,7 +114,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         //String name = sharedPref.getName();
         Log.e("", "");
         if (name.isEmpty()) {
-            Toast.makeText(AppConfiguration.getContext(), getString(R.string.logg_for_register_opinion) + sharedPref.getName(), Toast.LENGTH_LONG).show();
+            //Toast.makeText(AppConfiguration.getContext(), getString(R.string.logg_for_register_opinion) + sharedPref.getName(), Toast.LENGTH_LONG).show();
         } else {
             assert binding.txtIfMember != null;
             binding.txtIfMember.setVisibility(View.GONE);
