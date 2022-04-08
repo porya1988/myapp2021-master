@@ -23,7 +23,6 @@ public interface FService {
 
     //be khater estefade az dastor @Field bayad az dastor @FormUrlEncoded estefade konim
 
-
     @GET("getAllfoods.php")
     Call<List<MFoods>> getAllfoods(@Query("category") String category);
 
