@@ -15,15 +15,46 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-       <androidx.appcompat.widget.AppCompatTextView
-           android:textColor="@color/blupallet"
-           android:id="@+id/txt_date"
-           android:layout_marginTop="@dimen/argin_right"
-           android:layout_marginStart="@dimen/argin_right"
-           android:layout_width="wrap_content"
-           android:layout_height="wrap_content"/>
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_write"
+                android:layout_width="@dimen/argin_right"
+                android:layout_height="@dimen/argin_right"
+                app:srcCompat="@drawable/ic_baseline_create_24"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="@dimen/argin_right"
+                android:layout_marginTop="@dimen/argin_right"
+                />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_toLeftOf="@id/img_write"
+                android:id="@+id/txt_writer"
+                android:textColor="@color/blupallet"
+                android:layout_marginTop="@dimen/argin_right"
+                android:layout_marginRight="45sp"
+                android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_date"
+                android:layout_width="@dimen/argin_right"
+                android:layout_height="@dimen/argin_right"
+                app:srcCompat="@drawable/ic_baseline_date_range_24"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/argin_right"
+                android:layout_marginBottom="@dimen/argin_right"
+                />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginBottom="@dimen/argin_right"
+                android:layout_marginLeft="@dimen/argin_right"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@id/img_date"
+                android:id="@+id/txt_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
         </RelativeLayout>
+
     </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
