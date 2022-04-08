@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="160sp"
+        app:cardCornerRadius="8sp"
+        android:layout_margin="@dimen/argin_right"
+        app:cardElevation="8sp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+       <androidx.appcompat.widget.AppCompatTextView
+           android:textColor="@color/blupallet"
+           android:id="@+id/txt_date"
+           android:layout_marginTop="@dimen/argin_right"
+           android:layout_marginStart="@dimen/argin_right"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
