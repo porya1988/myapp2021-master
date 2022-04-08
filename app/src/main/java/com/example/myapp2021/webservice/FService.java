@@ -37,5 +37,5 @@ public interface FService {
 
     @FormUrlEncoded
     @POST("getComments.php")
-    Call<List<Comment>> getComment(@Field("name") String name,@Field("family") String family,@Field("comment") String comment,@Field("date") String date);
+    Call<Comment> getComment(@Field("name") String name,@Field("family") String family,@Field("comment") String comment,@Field("date") String date);
 }

@@ -4,8 +4,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.example.myapp2021.R;
+import com.example.myapp2021.comments.ComListener;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
+import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
 import com.example.myapp2021.model.MFoods;
@@ -26,8 +29,8 @@ import retrofit2.Response;
 public class WebserviceCaller {
 
     FService fservice;
-
     User user;
+    Comment comment;
 
     public WebserviceCaller() {
         fservice = ApiClient.getClient().create(FService.class);
@@ -105,5 +108,25 @@ public class WebserviceCaller {
         });
     }
 
+    public void getComemnt(HashMap<String,Object> comment, ComListener listener){
+        String name=comment.get("name").toString();
+        String family=comment.get("family").toString();
+        String Usercomment=comment.get("comment").toString();
+        String date=comment.get("date").toString();
+
+        fservice.getComment(name,family,Usercomment,date).enqueue(new Callback<Comment>() {
+            @Override
+            public void onResponse(Call<Comment> call, Response<Comment> response) {
+                listener.onSuccess(response.body());
+                Log.e("","");
+            }
+
+            @Override
+            public void onFailure(Call<Comment> call, Throwable t) {
+                listener.onFailure("خطایی رخ داده است");
+            }
+        });
+
+    }
 
 }

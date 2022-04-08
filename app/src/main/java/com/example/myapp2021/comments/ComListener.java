@@ -6,4 +6,6 @@ public interface ComListener {
 
     void onSuccess(Comment responseMessage);
     void onFailure(String errorResponseMessage);
+
+    void onEmptyComment(String errorResponseMessage);
 }

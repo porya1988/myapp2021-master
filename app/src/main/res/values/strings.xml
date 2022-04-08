@@ -107,5 +107,6 @@
     <string name="comment_opinion">نظرتو اینجا بنویس</string>
     <string name="logg_for_register_opinion">برای نظر دادن قبلش باید عضو بشی</string>
     <string name="comment_added">نظر شما با موفقیت ثبت شد</string>
+    <string name="comment_regestration_failed">ثبت نظر موفقیت آمیز نبود،دوباره امتحان کنید</string>
 
 </resources>
