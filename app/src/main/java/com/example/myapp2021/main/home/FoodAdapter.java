@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.cardview.widget.CardView;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapp2021.Activities.fastfood.FastFoodActivity;
@@ -59,7 +57,6 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodVH> {
 
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             AppConfiguration.getContext().startActivity(intent);
-
 
         });
 
