@@ -4,6 +4,7 @@ import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.webservice.WebserviceCaller;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class CommentInteractor {
 
@@ -15,17 +16,17 @@ public class CommentInteractor {
 
     public void getComment(HashMap<String,Object> comment,ComListener listener){
 
-        String name=comment.get("name").toString();
+        String name= Objects.requireNonNull(comment.get("name")).toString();
         if (name.isEmpty()){
             listener.onFailure("شما عضو نیستید");
         }
 
-        String family=comment.get("family").toString();
+        String family= Objects.requireNonNull(comment.get("family")).toString();
         if (family.isEmpty()){
             listener.onFailure("شما عضو نیستید");
         }
 
-        String Usercomment=comment.get("comment").toString();
+        String Usercomment= Objects.requireNonNull(comment.get("comment")).toString();
         if (Usercomment.isEmpty()){
             listener.onEmptyComment("متن نظر شما خالی است");
         }

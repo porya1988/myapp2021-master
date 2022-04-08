@@ -127,7 +127,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     protected void onStart() {
         //String name = sharedPref.getName();
         Log.e("", "");
-        if (name.isEmpty()) {
+        if (!name.isEmpty()) {
             assert binding.txtIfMember != null;
             binding.txtIfMember.setVisibility(View.GONE);
         }
@@ -138,6 +138,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     @Override
     public void onSuccess(Comment responseMessage) {
         Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
+        Log.e("","");
     }
 
     @Override
