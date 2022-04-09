@@ -114,16 +114,17 @@ public class WebserviceCaller {
         String Usercomment=comment.get("comment").toString();
         String date=comment.get("date").toString();
 
-        fservice.getComment(name,family,Usercomment,date).enqueue(new Callback<Comment>() {
+        fservice.getComment(name,family,Usercomment,date).enqueue(new Callback<List<Comment>>() {
             @Override
-            public void onResponse(Call<Comment> call, Response<Comment> response) {
-                listener.onSuccess(response.body());
+            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
+                List<Comment> comment=response.body();
+                listener.onSuccess(comment);
                 Log.e("","");
             }
 
             @Override
-            public void onFailure(Call<Comment> call, Throwable t) {
-                listener.onFailure("خطایی رخ داده است");
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+              listener.onFailure("خطایی رخ داده است");
             }
         });
 

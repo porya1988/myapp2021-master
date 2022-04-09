@@ -4,6 +4,7 @@ import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.webservice.WebserviceCaller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class CommentInteractor {
@@ -33,8 +34,9 @@ public class CommentInteractor {
 
 
         webserviceCaller.getComemnt(comment, new ComListener() {
+
             @Override
-            public void onSuccess(Comment responseMessage) {
+            public void onSuccess(List<Comment> responseMessage) {
                 listener.onSuccess(responseMessage);
             }
 
@@ -45,7 +47,7 @@ public class CommentInteractor {
 
             @Override
             public void onEmptyComment(String errorResponseMessage) {
-             listener.onEmptyComment(errorResponseMessage);
+
             }
         });
     }

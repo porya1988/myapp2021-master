@@ -159,5 +159,10 @@
     android:layout_centerHorizontal="true"
     android:layout_marginTop="@dimen/argin_right"
     />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comment_recycler"
+            android:layout_below="@id/comment_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
 </ScrollView>

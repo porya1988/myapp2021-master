@@ -11,7 +11,7 @@ public class Comment {
         this.setName(name);
         this.setFamily(family);
         this.setComment(comment);
-        this.setDate(comment);
+        this.setDate(date);
     }
 
     public String getName() {

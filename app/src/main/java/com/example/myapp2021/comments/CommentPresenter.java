@@ -3,6 +3,7 @@ package com.example.myapp2021.comments;
 import com.example.myapp2021.model.Comment;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class CommentPresenter implements ComListener {
 
@@ -22,17 +23,17 @@ public class CommentPresenter implements ComListener {
 
 
     @Override
-    public void onSuccess(Comment responseMessage) {
-       if (commentView !=null){
-           commentView.hideProgressbar();
-           commentView.onSuccess(responseMessage);
-       }
+    public void onSuccess(List<Comment> responseMessage) {
+        if (commentView !=null){
+            commentView.hideProgressbar();
+            commentView.onSuccess(responseMessage);
+        }
     }
 
     @Override
     public void onFailure(String errorResponseMessage) {
-      commentView.hideProgressbar();
-      commentView.onError(errorResponseMessage);
+        commentView.hideProgressbar();
+        commentView.onError(errorResponseMessage);
     }
 
     @Override
@@ -41,3 +42,7 @@ public class CommentPresenter implements ComListener {
         commentView.onEmptyComment(errorResponseMessage);
     }
 }
+
+
+
+

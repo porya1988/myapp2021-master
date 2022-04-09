@@ -15,6 +15,7 @@ import com.example.myapp2021.Registration.LoginActivity;
 import com.example.myapp2021.comments.CommentPresenter;
 import com.example.myapp2021.comments.CommentTime;
 import com.example.myapp2021.comments.CommentView;
+import com.example.myapp2021.comments.CommentsAdapter;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.database.AppDatabase;
@@ -23,6 +24,7 @@ import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.MFoods;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class FoodDetailActivity extends AppCompatActivity implements CommentView {
@@ -36,6 +38,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     String name;
     String family;
     CommentTime commentTime;
+    CommentsAdapter adapter;
 
 
     @Override
@@ -135,9 +138,12 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     }
 
     ////////////////////////////////////////////////////////////////////
+
+
     @Override
-    public void onSuccess(Comment responseMessage) {
+    public void onSuccess(List<Comment> responseMessage) {
         Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
+        adapter=new CommentsAdapter(responseMessage);
         Log.e("","");
     }
 
