@@ -1,4 +1,5 @@
 package com.example.myapp2021.webservice;
+import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.MFoods;
 import com.example.myapp2021.model.User;
@@ -36,4 +37,8 @@ public interface FService {
     @FormUrlEncoded
     @POST("getComments.php")
     Call<String> getComment(@Field("name") String name, @Field("family") String family, @Field("comment") String comment, @Field("date") String date,@Field("FoodName") String FoodName);
+
+    @FormUrlEncoded
+    @POST("getFoodComment.php")
+    Call<List<Comment>> getFoodComment(@Field("FoodName") String FoodName);
 }
