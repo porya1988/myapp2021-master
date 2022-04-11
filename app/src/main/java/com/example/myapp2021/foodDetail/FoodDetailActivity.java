@@ -48,12 +48,13 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         name = sharedPref.getName();
         family=sharedPref.getFamily();
         commentTime=new CommentTime();
-
+        String foodName=foods.getName();
+        commentPresenter.getFoodComment(foodName);
         setContentView(binding.getRoot());
         ////////////////////////////////////////////////////////////////////
         assert binding.send != null;
         binding.send.setOnClickListener(v -> {
-                String foodName=foods.getName();
+
                 String date=commentTime.getCurrentTime();
                 assert binding.commentEdit != null;
                 String commentText= Objects.requireNonNull(binding.commentEdit.getText()).toString();
@@ -128,7 +129,6 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
 
     @Override
     protected void onStart() {
-        //String name = sharedPref.getName();
         Log.e("", "");
         if (!name.isEmpty()) {
             assert binding.txtIfMember != null;
@@ -141,8 +141,9 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
 
 
     @Override
-    public void onSuccess(String responseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
+    public void onSuccess(Object responseMessage) {
+
+        //Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
         Log.e("","");
     }
 

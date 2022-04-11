@@ -18,9 +18,14 @@ public class CommentPresenter implements ComListener {
         //commentInteractor.getComment(comment);
     }
 
+    public void getFoodComment(String name){
+        commentView.ShowProgressbar();
+        commentInteractor.getFoodComments(name,this);
+    }
+
 
     @Override
-    public void onSuccess(String responseMessage) {
+    public void onSuccess(Object responseMessage) {
         if (commentView !=null){
             commentView.hideProgressbar();
             commentView.onSuccess(responseMessage);

@@ -1,8 +1,8 @@
 package com.example.myapp2021.comments;
 
-public interface CommentView{
+public interface CommentView<T>{
 
-    void onSuccess(String responseMessage);
+    void onSuccess(T responseMessage);
     void onEmptyComment(String responseMessage);
     void onError(String errorResponseMessage);
     void ShowProgressbar();

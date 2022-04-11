@@ -34,7 +34,7 @@ public class CommentInteractor {
         webserviceCaller.getComemnt(comment, new ComListener() {
 
             @Override
-            public void onSuccess(String responseMessage) {
+            public void onSuccess(Object responseMessage) {
                 listener.onSuccess(responseMessage);
             }
 
@@ -46,6 +46,33 @@ public class CommentInteractor {
             @Override
             public void onEmptyComment(String errorResponseMessage) {
 
+            }
+        });
+    }
+
+
+
+    public void getFoodComments(String name,ComListener listener){
+
+
+        if (name.isEmpty()){
+            listener.onFailure("خطایی رخ داده است");
+        }
+
+        webserviceCaller.getFoodComments(name, new ComListener() {
+            @Override
+            public void onSuccess(Object responseMessage) {
+                listener.onSuccess(responseMessage);
+            }
+
+            @Override
+            public void onFailure(String errorResponseMessage) {
+               listener.onFailure(errorResponseMessage);
+            }
+
+            @Override
+            public void onEmptyComment(String errorResponseMessage) {
+                  listener.onFailure(errorResponseMessage);
             }
         });
     }

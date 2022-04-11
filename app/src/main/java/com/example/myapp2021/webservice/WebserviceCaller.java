@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 
 import com.example.myapp2021.R;
 import com.example.myapp2021.comments.ComListener;
+import com.example.myapp2021.comments.FoodCommentListener;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.model.Comment;
@@ -128,6 +129,21 @@ public class WebserviceCaller {
             }
         });
 
+    }
+
+    public void getFoodComments(String name, ComListener listener){
+        fservice.getFoodComment(name).enqueue(new Callback<List<Comment>>() {
+            @Override
+            public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
+                listener.onSuccess(response.body());
+                Log.e("","");
+            }
+
+            @Override
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+                  listener.onFailure("خطایی رخ داده است");
+            }
+        });
     }
 
 }
