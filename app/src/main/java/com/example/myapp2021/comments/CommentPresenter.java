@@ -1,9 +1,6 @@
 package com.example.myapp2021.comments;
 
-import com.example.myapp2021.model.Comment;
-
 import java.util.HashMap;
-import java.util.List;
 
 public class CommentPresenter implements ComListener {
 
@@ -23,7 +20,7 @@ public class CommentPresenter implements ComListener {
 
 
     @Override
-    public void onSuccess(List<Comment> responseMessage) {
+    public void onSuccess(String responseMessage) {
         if (commentView !=null){
             commentView.hideProgressbar();
             commentView.onSuccess(responseMessage);

@@ -30,11 +30,22 @@
             <androidx.appcompat.widget.AppCompatTextView
                 android:text="@={comment.name}"
                 android:layout_toLeftOf="@id/img_write"
+                android:textStyle="bold"
                 android:id="@+id/txt_writer"
                 android:textColor="@color/blupallet"
                 android:layout_marginTop="@dimen/argin_right"
                 android:layout_marginRight="45sp"
                 android:layout_alignParentEnd="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="@={comment.comment}"
+                android:layout_marginTop="@dimen/argin_right"
+                android:layout_marginRight="42sp"
+                android:layout_alignParentEnd="true"
+                android:layout_below="@id/txt_writer"
+                android:id="@+id/txt_comment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
@@ -56,7 +67,6 @@
                 android:id="@+id/txt_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
-
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

@@ -15,16 +15,13 @@ import com.example.myapp2021.Registration.LoginActivity;
 import com.example.myapp2021.comments.CommentPresenter;
 import com.example.myapp2021.comments.CommentTime;
 import com.example.myapp2021.comments.CommentView;
-import com.example.myapp2021.comments.CommentsAdapter;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.database.AppDatabase;
 import com.example.myapp2021.databinding.ActivityFooddetailBinding;
-import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.MFoods;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
 public class FoodDetailActivity extends AppCompatActivity implements CommentView {
@@ -38,7 +35,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     String name;
     String family;
     CommentTime commentTime;
-    CommentsAdapter adapter;
+
 
 
     @Override
@@ -56,7 +53,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         ////////////////////////////////////////////////////////////////////
         assert binding.send != null;
         binding.send.setOnClickListener(v -> {
-
+                String foodName=foods.getName();
                 String date=commentTime.getCurrentTime();
                 assert binding.commentEdit != null;
                 String commentText= Objects.requireNonNull(binding.commentEdit.getText()).toString();
@@ -65,6 +62,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
                 comment.put("family",family);
                 comment.put("comment",commentText);
                 comment.put("date",date);
+                comment.put("FoodName",foodName);
                 commentPresenter.getComment(comment);
                 Log.e("","");
 
@@ -75,6 +73,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         bundle = getIntent().getExtras();
         foods = bundle.getParcelable("food");
         binding.txtFoodname.setText(foods.getName());
+        Log.e("","");
+
         binding.txtIngredients.setText(foods.getIngredients());
         binding.txtPrepare.setText(foods.getPrepare());
 
@@ -141,9 +141,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
 
 
     @Override
-    public void onSuccess(List<Comment> responseMessage) {
+    public void onSuccess(String responseMessage) {
         Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
-        adapter=new CommentsAdapter(responseMessage);
         Log.e("","");
     }
 

@@ -123,11 +123,12 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/argin_right"
             android:id="@+id/send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_if_member"
+            android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/argin_right"
             android:layout_toRightOf="@id/comment_edit"
