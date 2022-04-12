@@ -7,7 +7,9 @@
 
 
     <androidx.cardview.widget.CardView
+
         android:id="@+id/card_Categories"
+
         app:cardElevation="8sp"
         app:cardCornerRadius="8sp"
         android:layout_width="match_parent"
@@ -15,6 +17,7 @@
         android:layout_height="180sp">
 
         <LinearLayout
+
             android:id="@+id/rel_foods"
             android:gravity="center"
             android:orientation="vertical"
@@ -22,10 +25,10 @@
             android:layout_height="match_parent">
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="350dp"
-                android:layout_height="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/img_foodCat"
-                android:scaleType="fitXY"/>
+                android:scaleType="center"/>
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

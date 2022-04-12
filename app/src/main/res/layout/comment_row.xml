@@ -41,17 +41,18 @@
                 android:layout_height="wrap_content"/>
 
             <androidx.appcompat.widget.AppCompatTextView
-                android:text="@={comment.comment}"
-                android:layout_marginTop="@dimen/argin_right"
-                android:layout_marginRight="42sp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_below="@id/txt_writer"
                 android:id="@+id/txt_comment"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="@={comment.comment}"
+                android:layout_marginTop="50sp"
+                android:layout_marginRight="50sp"
+                android:layout_toLeftOf="@id/txt_writer"
+               />
 
             <androidx.appcompat.widget.AppCompatImageView
+                android:layout_below="@id/txt_comment"
                 android:id="@+id/img_date"
                 android:layout_width="@dimen/argin_right"
                 android:layout_height="@dimen/argin_right"
@@ -63,6 +64,7 @@
             <androidx.appcompat.widget.AppCompatTextView
 
                 android:text="@={comment.date}"
+                android:layout_below="@id/txt_comment"
                 android:layout_marginBottom="@dimen/argin_right"
                 android:layout_marginLeft="@dimen/argin_right"
                 android:layout_alignParentBottom="true"
