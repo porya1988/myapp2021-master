@@ -115,23 +115,25 @@ public class WebserviceCaller {
         String Usercomment=comment.get("comment").toString();
         String date=comment.get("date").toString();
         String FoodName=comment.get("FoodName").toString();
-
+        Log.e("","");
         fservice.getComment(name,family,Usercomment,date,FoodName).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
-                listener.onSuccess(response.body());
+                String message=response.body().toString();
+                listener.onSuccess(message);
                 Log.e("","");
             }
 
             @Override
             public void onFailure(Call<String> call, Throwable t) {
+                listener.onFailure("خطایی رخ داده است");
 
             }
         });
 
     }
 
-    public void getFoodComments(String name, ComListener listener){
+    public void getFoodComments(String name, FoodCommentListener listener){
         fservice.getFoodComment(name).enqueue(new Callback<List<Comment>>() {
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {

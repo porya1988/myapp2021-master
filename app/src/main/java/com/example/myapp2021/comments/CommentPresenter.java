@@ -15,17 +15,13 @@ public class CommentPresenter implements ComListener {
     public void getComment(HashMap<String,Object> comment){
         commentView.ShowProgressbar();
         commentInteractor.getComment(comment,this);
-        //commentInteractor.getComment(comment);
     }
 
-    public void getFoodComment(String name){
-        commentView.ShowProgressbar();
-        commentInteractor.getFoodComments(name,this);
-    }
+
 
 
     @Override
-    public void onSuccess(Object responseMessage) {
+    public void onSuccess(String responseMessage) {
         if (commentView !=null){
             commentView.hideProgressbar();
             commentView.onSuccess(responseMessage);

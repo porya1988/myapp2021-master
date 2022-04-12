@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.LoginActivity;
+import com.example.myapp2021.comments.AllCommentsPresenter;
 import com.example.myapp2021.comments.CommentPresenter;
 import com.example.myapp2021.comments.CommentTime;
 import com.example.myapp2021.comments.CommentView;
@@ -40,6 +41,9 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     String name;
     String family;
     CommentTime commentTime;
+    AllCommentsPresenter presenter;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +52,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
         sharedPref = new SharedPref(AppConfiguration.getContext());
         commentPresenter = new CommentPresenter(this);
+        presenter=new AllCommentsPresenter(this);
         name = sharedPref.getName();
         family = sharedPref.getFamily();
         commentTime = new CommentTime();
@@ -69,9 +74,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             comment.put("date", date);
             comment.put("FoodName", foodName);
             commentPresenter.getComment(comment);
-
-
         });
+        /////////////////
 
 
         ////////////////////////////////////////////////////////////////////
@@ -135,7 +139,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     @Override
     protected void onStart() {
         String foodTitle = foods.getName();
-        commentPresenter.getFoodComment(foodTitle);
+        presenter.getAllComments(foodTitle);
         Log.e("", "");
         if (!name.isEmpty()) {
             assert binding.txtIfMember != null;
@@ -149,13 +153,16 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
 
     @Override
     public void onSuccess(Object responseMessage) {
+
         List<Comment> commentList = (List<Comment>) responseMessage;
-        Log.e("","");
+
         assert binding.commentRecycler != null;
         binding.commentRecycler.setAdapter(new CommentsAdapter(commentList));
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
         binding.commentRecycler.setLayoutManager(manager);
-        Log.e("", "");
+
+
+
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.example.myapp2021.comments;
 
-public interface ComListener<T> {
+public interface ComListener {
 
-    void onSuccess(T responseMessage);
+    void onSuccess(String responseMessage);
     void onFailure(String errorResponseMessage);
 
     void onEmptyComment(String errorResponseMessage);

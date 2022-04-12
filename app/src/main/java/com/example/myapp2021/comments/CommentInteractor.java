@@ -1,8 +1,10 @@
 package com.example.myapp2021.comments;
 
+import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.webservice.WebserviceCaller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class CommentInteractor {
@@ -34,7 +36,7 @@ public class CommentInteractor {
         webserviceCaller.getComemnt(comment, new ComListener() {
 
             @Override
-            public void onSuccess(Object responseMessage) {
+            public void onSuccess(String responseMessage) {
                 listener.onSuccess(responseMessage);
             }
 
@@ -45,36 +47,33 @@ public class CommentInteractor {
 
             @Override
             public void onEmptyComment(String errorResponseMessage) {
-
+              listener.onEmptyComment("متن نظر شما خالی است");
             }
         });
     }
 
-
-
-    public void getFoodComments(String name,ComListener listener){
-
-
-        if (name.isEmpty()){
-            listener.onFailure("خطایی رخ داده است");
-        }
-
-        webserviceCaller.getFoodComments(name, new ComListener() {
+    public void getAllComments(String name,FoodCommentListener listener){
+        webserviceCaller.getFoodComments(name, new FoodCommentListener() {
             @Override
-            public void onSuccess(Object responseMessage) {
+            public void onSuccess(List<Comment> responseMessage) {
                 listener.onSuccess(responseMessage);
             }
 
             @Override
             public void onFailure(String errorResponseMessage) {
-               listener.onFailure(errorResponseMessage);
+              listener.onFailure(errorResponseMessage);
             }
 
             @Override
             public void onEmptyComment(String errorResponseMessage) {
-                  listener.onFailure(errorResponseMessage);
+            listener.onEmptyComment(errorResponseMessage);
             }
         });
     }
 
-}
+
+
+
+    }
+
+
