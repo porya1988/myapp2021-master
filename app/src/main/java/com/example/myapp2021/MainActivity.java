@@ -1,21 +1,18 @@
 package com.example.myapp2021;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.myapp2021.databinding.ActivityMainBinding;
-
 import com.example.myapp2021.main.TabsAdapter;
 import com.example.myapp2021.main.contact.ContactFragment;
 import com.example.myapp2021.main.favorite.FavoriteFragment;
 import com.example.myapp2021.main.home.HomeFragment;
 import com.example.myapp2021.main.shoppinglist.ShoppingFragment;
-import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     TabsAdapter adapter;
 
+
+
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
 
 }
+

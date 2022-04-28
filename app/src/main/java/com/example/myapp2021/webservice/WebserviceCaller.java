@@ -1,14 +1,10 @@
 package com.example.myapp2021.webservice;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapp2021.R;
 import com.example.myapp2021.comments.ComListener;
 import com.example.myapp2021.comments.FoodCommentListener;
-import com.example.myapp2021.config.AppConfiguration;
-import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
@@ -16,13 +12,11 @@ import com.example.myapp2021.model.MFoods;
 import com.example.myapp2021.model.User;
 
 import org.jetbrains.annotations.NotNull;
-import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -116,7 +110,7 @@ public class WebserviceCaller {
         String date=comment.get("date").toString();
         String FoodName=comment.get("FoodName").toString();
         Log.e("","");
-        fservice.getComment(name,family,Usercomment,date,FoodName).enqueue(new Callback<String>() {
+        fservice.getComment(name,family,Usercomment).enqueue(new Callback<String>() {
             @Override
             public void onResponse(Call<String> call, Response<String> response) {
                 String message=response.body().toString();

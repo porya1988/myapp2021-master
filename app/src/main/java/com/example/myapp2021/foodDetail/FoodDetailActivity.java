@@ -145,6 +145,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             assert binding.txtIfMember != null;
             binding.txtIfMember.setVisibility(View.GONE);
         }
+
         super.onStart();
     }
 
@@ -186,4 +187,10 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         assert binding.progressBar != null;
         binding.progressBar.setVisibility(View.GONE);
     }
+
+
+
+
+
+
 }
