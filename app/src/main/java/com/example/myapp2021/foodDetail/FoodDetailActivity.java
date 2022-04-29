@@ -1,5 +1,4 @@
 package com.example.myapp2021.foodDetail;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,41 +6,34 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
 import com.example.myapp2021.Registration.LoginActivity;
-import com.example.myapp2021.comments.AllCommentsPresenter;
-import com.example.myapp2021.comments.CommentPresenter;
 import com.example.myapp2021.comments.CommentTime;
-import com.example.myapp2021.comments.CommentView;
-import com.example.myapp2021.comments.CommentsAdapter;
 import com.example.myapp2021.config.AppConfiguration;
 import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.database.AppDatabase;
 import com.example.myapp2021.databinding.ActivityFooddetailBinding;
-import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.MFoods;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Objects;
 
-public class FoodDetailActivity extends AppCompatActivity implements CommentView {
+public class FoodDetailActivity extends AppCompatActivity{
 
     ActivityFooddetailBinding binding;
     Bundle bundle;
     MFoods foods;
     AppDatabase appDatabase;
     SharedPref sharedPref;
-    CommentPresenter commentPresenter;
     String name;
     String family;
     CommentTime commentTime;
-    AllCommentsPresenter presenter;
+    //AllCommentsPresenter presenter;
+    CommentViewModel commentViewModel;
 
 
 
@@ -51,8 +43,6 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         binding = ActivityFooddetailBinding.inflate(getLayoutInflater());
         appDatabase = AppDatabase.getInstance(AppConfiguration.getContext());
         sharedPref = new SharedPref(AppConfiguration.getContext());
-        commentPresenter = new CommentPresenter(this);
-        presenter=new AllCommentsPresenter(this);
         name = sharedPref.getName();
         family = sharedPref.getFamily();
         commentTime = new CommentTime();
@@ -62,8 +52,6 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         assert binding.send != null;
         binding.send.setOnClickListener(v -> {
             String foodName = foods.getName();
-            Log.e("", "");
-            //commentPresenter.getFoodComment(foodName);
             String date = commentTime.getCurrentTime();
             assert binding.commentEdit != null;
             String commentText = Objects.requireNonNull(binding.commentEdit.getText()).toString();
@@ -73,11 +61,16 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
             comment.put("comment", commentText);
             comment.put("date", date);
             comment.put("FoodName", foodName);
-            commentPresenter.getComment(comment);
+            assert binding.progressBar != null;
+            binding.progressBar.setVisibility(View.VISIBLE);
+            commentViewModel=new ViewModelProvider(this).get(CommentViewModel.class);
+            commentViewModel.getComment(comment).observe(this, s -> {
+                binding.progressBar.setVisibility(View.GONE);
+               Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
+                Log.e("","");
+            });
+
         });
-        /////////////////
-
-
         ////////////////////////////////////////////////////////////////////
         bundle = getIntent().getExtras();
         foods = bundle.getParcelable("food");
@@ -138,9 +131,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
 
     @Override
     protected void onStart() {
-        String foodTitle = foods.getName();
-        presenter.getAllComments(foodTitle);
-        Log.e("", "");
+        //String foodTitle = foods.getName();
         if (!name.isEmpty()) {
             assert binding.txtIfMember != null;
             binding.txtIfMember.setVisibility(View.GONE);
@@ -152,7 +143,7 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
     ////////////////////////////////////////////////////////////////////
 
 
-    @Override
+/*    @Override
     public void onSuccess(Object responseMessage) {
 
         List<Comment> commentList = (List<Comment>) responseMessage;
@@ -160,37 +151,8 @@ public class FoodDetailActivity extends AppCompatActivity implements CommentView
         assert binding.commentRecycler != null;
         binding.commentRecycler.setAdapter(new CommentsAdapter(commentList));
         LinearLayoutManager manager = new LinearLayoutManager(getApplicationContext(), RecyclerView.VERTICAL, false);
-        binding.commentRecycler.setLayoutManager(manager);
-
+        binding.commentRecycler.setLayoutManager(manager);*/
 
 
     }
 
-    @Override
-    public void onEmptyComment(String responseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), responseMessage, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onError(String errorResponseMessage) {
-        Toast.makeText(AppConfiguration.getContext(), errorResponseMessage, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void ShowProgressbar() {
-        assert binding.progressBar != null;
-        binding.progressBar.setVisibility(View.VISIBLE);
-    }
-
-    @Override
-    public void hideProgressbar() {
-        assert binding.progressBar != null;
-        binding.progressBar.setVisibility(View.GONE);
-    }
-
-
-
-
-
-
-}

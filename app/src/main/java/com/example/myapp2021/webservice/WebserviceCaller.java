@@ -3,8 +3,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
-import com.example.myapp2021.comments.ComListener;
-import com.example.myapp2021.comments.FoodCommentListener;
 import com.example.myapp2021.model.Comment;
 import com.example.myapp2021.model.Food;
 import com.example.myapp2021.model.IMessageListner;
@@ -103,31 +101,7 @@ public class WebserviceCaller {
         });
     }
 
-    public void getComemnt(HashMap<String,Object> comment, ComListener listener){
-        String name=comment.get("name").toString();
-        String family=comment.get("family").toString();
-        String Usercomment=comment.get("comment").toString();
-        String date=comment.get("date").toString();
-        String FoodName=comment.get("FoodName").toString();
-        Log.e("","");
-        fservice.getComment(name,family,Usercomment).enqueue(new Callback<String>() {
-            @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String message=response.body().toString();
-                listener.onSuccess(message);
-                Log.e("","");
-            }
-
-            @Override
-            public void onFailure(Call<String> call, Throwable t) {
-                listener.onFailure("خطایی رخ داده است");
-
-            }
-        });
-
-    }
-
-    public void getFoodComments(String name, FoodCommentListener listener){
+/*    public void getFoodComments(String name, FoodCommentListener listener){
         fservice.getFoodComment(name).enqueue(new Callback<List<Comment>>() {
             @Override
             public void onResponse(Call<List<Comment>> call, Response<List<Comment>> response) {
@@ -140,6 +114,6 @@ public class WebserviceCaller {
                   listener.onFailure("خطایی رخ داده است");
             }
         });
-    }
+    }*/
 
 }
