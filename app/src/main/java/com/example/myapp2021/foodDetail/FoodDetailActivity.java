@@ -4,10 +4,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.myapp2021.R;
@@ -18,7 +16,6 @@ import com.example.myapp2021.config.SharedPref;
 import com.example.myapp2021.database.AppDatabase;
 import com.example.myapp2021.databinding.ActivityFooddetailBinding;
 import com.example.myapp2021.model.MFoods;
-
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -32,7 +29,6 @@ public class FoodDetailActivity extends AppCompatActivity{
     String name;
     String family;
     CommentTime commentTime;
-    //AllCommentsPresenter presenter;
     CommentViewModel commentViewModel;
 
 
@@ -46,7 +42,6 @@ public class FoodDetailActivity extends AppCompatActivity{
         name = sharedPref.getName();
         family = sharedPref.getFamily();
         commentTime = new CommentTime();
-
         setContentView(binding.getRoot());
         ////////////////////////////////////////////////////////////////////
         assert binding.send != null;
@@ -69,7 +64,6 @@ public class FoodDetailActivity extends AppCompatActivity{
                Toast.makeText(AppConfiguration.getContext(), R.string.comment_added, Toast.LENGTH_LONG).show();
                 Log.e("","");
             });
-
         });
         ////////////////////////////////////////////////////////////////////
         bundle = getIntent().getExtras();
@@ -141,8 +135,6 @@ public class FoodDetailActivity extends AppCompatActivity{
     }
 
     ////////////////////////////////////////////////////////////////////
-
-
 /*    @Override
     public void onSuccess(Object responseMessage) {
 
